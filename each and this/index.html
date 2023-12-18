@@ -113,6 +113,7 @@
   <script>
     $(function () {
 
+      // Color amarillo de los elementos li pares de la clase iconized
       $(".iconized li").each(function (index) {
         console.long("El elemento"+index+"contiene "+(this).text());
 
@@ -120,6 +121,18 @@
           $(this).css("color","yellow");
         }
       });
+      //Celdas de la tabla que contenga un texto determinado
+      $("td:contains('B')").css("color","green")
+      //Celdas d ela primera columna de la tabla que contengan un texto
+      $("td:nth-child(1):contains('A')").text("hola");
+      //Todos los campos y los botones del formulario
+      $(":input")
+      $("form span")
+      //Todos los elementos de cabecera
+      $(":header")
+      //Los elementos de la lista, todos salvo el primero
+      $("img:gt(1)")
+      
 
     });
 
