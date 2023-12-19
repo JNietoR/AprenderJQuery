@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>media con JQuery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Examen 1</th>
+                <th>Examen 2</th>
+                <th>Examen 3</th>
+                <th>Nota evaluación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pepe Pérez</td>
+                <td>5</td>
+                <td>10</td>
+                <td>3</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Ana Ramírez</td>
+                <td>6</td>
+                <td>3</td>
+                <td>5</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Rosa Torres</td>
+                <td>9</td>
+                <td>3</td>
+                <td>9</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sara Gallardo</td>
+                <td>8</td>
+                <td>8</td>
+                <td>6</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        
+        $(function () {
+            //variable para media
+            var media = 0;
+            //variable con el numero de notas para dividir y calcular la media
+            var numElementos = 3;
+
+
+            $("tbody tr").each(function (index) {
+
+                
+                //almacenamos el valor de cada examen en una variable
+                let examen1 = $("tbody tr:nth-child(" + (index + 1) + ") td").eq(1).text();
+                let examen2 = $("tbody tr:nth-child(" + (index + 1) + ") td").eq(2).text();
+                let examen3 = $("tbody tr:nth-child(" + (index + 1) + ") td").eq(3).text();
+                //sumanos estas variables y las dividimos para calcular la media
+                let media = (parseFloat(examen1) + parseFloat(examen2) + parseFloat(examen3)) / numElementos;
+
+                $("tbody tr:nth-child(" + (index + 1) + ") td").eq(4).text(media);
+
+                (media >= 5) ? $(this).css("color", "green") : $(this).css("color", "red");
+
+            });
+ 
+
+
+        });
+
+    </script>
+</body>
+
+</html>
